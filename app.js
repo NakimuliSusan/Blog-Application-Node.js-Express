@@ -7,9 +7,11 @@ const app = express();
 app.use(express.json())
 app.use("/api/user", router)
 
+const mongoDbConnection = 'mongodb+srv://Mary-Susan:5G9jkYzUCoF09EfA@cluster0.7ufxqhs.mongodb.net/My-First-Application?retryWrites=true&w=majority'
+
 
 mongoose.connect(
-    'mongodb+srv://Mary-Susan:5G9jkYzUCoF09EfA@cluster0.7ufxqhs.mongodb.net/My-First-Application?retryWrites=true&w=majority')
+    mongoDbConnection)
     .then(()=>app.listen(5000))
     .then(() => console.log('Connected to database successfully and listening at port 5000')).catch((err)=> console.log(err))
 
