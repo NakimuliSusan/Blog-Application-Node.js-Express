@@ -32,7 +32,10 @@ export const addUser = async ( req ,res , next) => {
     const hashedPassword = bcrypt.hashSync(password)
 
     const  user = new User ({
-        name, email,password:hashedPassword
+        name,
+        email,
+        password:hashedPassword,
+        blogs:[]
     })
 
     try {
@@ -70,3 +73,4 @@ export const loginUser  = async (req, res , next ) =>{
    return res.status(200).json({ message:"login successful"})
 
 }
+

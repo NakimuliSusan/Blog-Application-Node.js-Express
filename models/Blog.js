@@ -5,20 +5,27 @@ const Schema = mongoose.Schema;
 // model for a blog
 
 const blogSchema = new Schema({
-    name:{
+    // _id:{
+    //     type: String,
+    // },
+    title:{
         type: String,
         required: true
     }, 
-    email: {
+    description: {
         type: String,
         required: true,
         unique: true
     },
-    password: {
-         type: String,
+    image: {
+        type: String,
+        required: true,
+   },
+    user: {
+         type: mongoose.Types.ObjectId,
+         ref: "User",
          required: true,
-         minlength: 6
     }
 })
 
-export default mongoose.model("User",blogSchema);
+export default mongoose.model("Blog",blogSchema);
